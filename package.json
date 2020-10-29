@@ -1,0 +1,45 @@
+{
+  "name": "electron-umi",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \" npm run umi-dev\" \" npm run electron:build && electron ./dist/main/bundle.js \"",
+    "build": "cross-env APP_ENV=production APP_ROOT=src/render umi build && npm run electron:build",
+    "umi-dev": "cross-env APP_ROOT=src/render umi dev",
+    "electron:build": "webpack --config src/main/config/webpack.config.js",
+    "pack-mac": "electron-builder -m",
+    "pack-win": "electron-builder -w",
+    "pack-lin": "electron-builder -l",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'"
+  },
+  "dependencies": {
+    "@ant-design/pro-layout": "^5.0.12",
+    "@umijs/preset-react": "1.x",
+    "electron-is-dev": "^1.2.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "umi": "^3.2.24"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.2",
+    "electron": "^10.1.5",
+    "electron-builder": "^22.9.1",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1",
+    "ts-loader": "^8.0.7",
+    "typescript": "^4.0.5",
+    "webpack-cli": "^4.1.0"
+  },
+  "main": "dist/main/bundle.js",
+  "build": {
+    "directories": {
+      "output": "output"
+    },
+    "files": [
+      "!node_modules/**/*",
+      "dist/**/*"
+    ],
+    "asar": false
+  }
+}
