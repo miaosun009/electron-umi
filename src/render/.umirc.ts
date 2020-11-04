@@ -19,4 +19,7 @@ export default defineConfig({
     '@pages': resolvePath('layout'),
     '@store': resolvePath('store'),
   },
+  chainWebpack(memo) {
+    memo.target('electron-renderer');
+  },
 });

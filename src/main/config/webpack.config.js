@@ -7,7 +7,7 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   target: 'electron-main',
   entry: {
-    bundle:pathResolve('main.ts'),
+    bundle:pathResolve('index.ts'),
     preload:pathResolve('preload.ts'),
   },
   output: {
