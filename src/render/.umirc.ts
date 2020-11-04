@@ -1,16 +1,22 @@
 import { defineConfig } from 'umi';
+import * as path from 'path';
 
+const resolvePath = dir => path.join(__dirname, dir);
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
   hash: true,
   history: {
-    type: 'hash'
+    type: 'hash',
   },
   outputPath: '../../dist/render',
   publicPath: './',
-  routes: [
-    { path: '/', component: '@/pages/index' },
-  ],
+  // 路径别名
+  alias: {
+    '@': resolvePath(''),
+    '@components': resolvePath('components'),
+    '@pages': resolvePath('layout'),
+    '@store': resolvePath('store'),
+  },
 });

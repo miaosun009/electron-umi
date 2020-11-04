@@ -10,12 +10,11 @@
     "baseUrl": "./",
     "strict": true,
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@@/*": [
-        "src/render/.umi/*"
-      ]
+      "@/*": ["src/*"],
+      "@@/*": ["src/render/.umi/*"],
+      "@components/*": ["src/render/components/*"],
+      "@pages/*": ["src/render/pages/*"],
+      "@store/*": ["src/render/store/*"]
     },
     "allowSyntheticDefaultImports": true
   }
